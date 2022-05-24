@@ -19,10 +19,11 @@ const FEED_QUERY = gql`
 ;
 
 /*this component funtion that renders a list of links. */
+
+
 const LinkList = () => {
-  const {data} =useQuery(FEED_QUERY) 
-  
-    /*{[
+  const linksToRender = [
+    {
       id: 'link-id-1',
       description:
         'Prisma gives you a powerful database toolkit 😎',
@@ -33,14 +34,15 @@ const LinkList = () => {
       description: 'The best GraphQL client',
       url: 'https://www.apollographql.com/docs/react/'
     }
-  ];*/
+  ];
 
   return (
     <div>
-      {data.feed.links.map((link) => (
+      {linksToRender.map((link) => (
         <Link key={link.id} link={link} />
       ))}
     </div>
   );
 };
+
 export default LinkList;
